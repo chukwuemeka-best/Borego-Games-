@@ -1,0 +1,1 @@
+Upload ALL files to the top level of your Borego-Games repo (replace the old ones): index.html, game.js, style.css, borego-sdk.js, cover.png, borego-game-manifest.json, README.md

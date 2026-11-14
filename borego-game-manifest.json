@@ -5,9 +5,10 @@
   "runtime": "webgl",
   "entry_point": "index.html",
   "multiplayer": true,
-  "min_players": 2,
-  "max_players": 2,
-  "description": "Online 1v1 3D football with team AI, goalkeeper positioning, passing, shooting, lob, tackles, restarts and synthesized match sound effects.",
-  "networking": "Supabase Realtime broadcast",
-  "borego_sdk_integration": "not_used_in_this_build"
+  "min_players": 1,
+  "max_players": 4,
+  "description": "Online 1, 2 or 4 players 3D football with team AI, goalkeeper positioning, passing, shooting, lob, tackles, restarts and synthesized match sound effects.",
+  "networking": "Borego Game SDK (borego-sdk.js)",
+  "borego_sdk_integration": "postmessage_sdk_v1",
+  "cover": "cover.png"
 }

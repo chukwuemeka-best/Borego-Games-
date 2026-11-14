@@ -3,3 +3,5 @@
 .actions{flex-wrap:wrap;justify-content:flex-end;max-width:310px}
 .actions button{min-width:47px}
 @media(max-width:430px){.actions{max-width:245px;gap:3px}.actions button{width:43px;height:43px;font-size:7px}.actions #shoot{width:55px;height:55px}}
+
+#lobteams{display:grid;gap:8px;margin:10px 0;text-align:left}#lobteams div{background:#ffffff14;border-radius:12px;padding:8px 12px}#lobteams b{display:block;font-size:11px;letter-spacing:.12em;opacity:.8}#lobteams span{font-size:15px}
