@@ -1,1 +1,1 @@
-Upload EVERYTHING in this zip (including the lib and assets folders) to the top level of your Borego-Games repo, replacing old files. Cover link: https://chukwuemeka-best.github.io/borego-games-/cover.png
+Upload index.html and cover.png to the top level of your Borego-Games repo, replacing the old ones. Nothing else is needed.
