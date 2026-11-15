@@ -1,35 +1,25 @@
-# Borego Football Online — enhanced build 0.3.0
+# Borego Football 3D — realistic edition
 
-Upload all files to the top level of your GitHub Pages game repository (or into a folder for another game). The entry file is `index.html`.
+Upload ALL files and folders (including `lib/` and `assets/`) to the top level of your Borego-Games repo. Entry file: `index.html`.
 
-## How it connects
-No codes and no database keys. Borego connects the players (see borego-sdk.js).
-- 1 player: tap "1 player" in Borego's game list. You play against the computer.
-- 2 players: start Football from a chat and invite your friend. 1 vs 1.
-- 3 or 4 players: start Football from a squad chat. 2 vs 2, two real people on each team (the computer fills a missing spot).
-The first player (host) presses KICK OFF in the lobby.
+## Playing
+- 1 player: tap "1 player" in Borego's game list (you vs computer).
+- 2 players: start from a chat, 1 vs 1. 3 or 4 players: start from a squad chat, 2 vs 2 (computer fills empty spots).
+- The first player (host) presses KICK OFF.
+- Real players show their username above their head; computer players show a jersey number.
+- SWITCH jumps to the team-mate with the ball (or the one nearest it). If two real people share a team, whoever presses SWITCH first gets the pick; the other gets the next one.
+- Controls: joystick; PASS, LOB, SHOOT (hold for power), TACKLE (tap=stand, hold=slide), SPRINT. Keyboard: WASD/arrows, J pass, K shoot, Shift sprint.
 
-## Controls
-- Mobile: joystick; PASS, SHOOT, LOB, TACKLE, SPRINT, SWITCH.
-- Desktop: WASD/arrows, J pass, K shoot, Shift sprint. On-screen buttons also work.
-- SOUND ON/OFF toggles synthesized effects.
+## Live reactions
+Tap the 😀 button (top left): emoji fly up on everyone's screen with the sender's name, quick phrases and typed messages appear in a live feed. Landscape: a "turn your phone sideways" screen shows in portrait (with a Play anyway button) and goes away when the phone is turned.
 
-## Included
-- 3D pitch, two 11-player teams, formation-based basic AI and goalkeeper positioning.
-- 1v1 online room-code connection using Supabase Realtime.
-- Movement, sprint/stamina, player switching, passing, shooting, lob shots and tackles.
-- Goal detection, score, accelerated 90-minute clock, halftime and full-time.
-- Throw-in, corner and goal-kick stoppages with restart interaction.
-- Synthesized kick, pass, lob, tackle, whistle, goal fanfare, halftime and full-time sounds, plus subtle stadium ambience.
+## Rules in the game
+Throw-ins, corners, goal kicks, free kicks, penalties, fouls and yellow cards, goalkeeper saves, two halves, referee with whistle. No offside, no substitutions, no extra time.
 
-## Important limitations
-This is an expanded playable prototype, not a finished commercial-grade football simulator. Official-standard offside decisions, foul/card logic, penalty-area foul/penalty-kick logic, free-kick placement, substitutions and penalty shootouts are not implemented. Player movement/animation and AI are basic. Supports 1 player (vs computer), 1v1, and 2v2.
+## Free assets used
+- Human characters, hair and animations: Quaternius "Universal Base Characters / Animation Library" (CC0).
+- three.js (MIT) in lib/.
+- Grass, stadium, floodlights, crowd, nets, ball, sounds: generated in code.
+See assets/LICENSE.txt and lib/three-LICENSE.txt.
 
-Players are connected through Borego rooms, so only invited members can join. Multiplayer has been tested here with simulated players, not on real phones. Test with a friend after you upload.
-
-Three.js loads from a CDN, so internet is required. No service-role key is included.
-
-
-## Cover picture
-cover.png is the game's picture. After uploading, paste this in the admin panel's picture link box:
-https://chukwuemeka-best.github.io/borego-games-/cover.png
+Tested with simulated players, not on real phones. Test with a friend after uploading.

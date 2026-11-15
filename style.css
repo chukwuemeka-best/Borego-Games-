@@ -5,3 +5,18 @@
 @media(max-width:430px){.actions{max-width:245px;gap:3px}.actions button{width:43px;height:43px;font-size:7px}.actions #shoot{width:55px;height:55px}}
 
 #lobteams{display:grid;gap:8px;margin:10px 0;text-align:left}#lobteams div{background:#ffffff14;border-radius:12px;padding:8px 12px}#lobteams b{display:block;font-size:11px;letter-spacing:.12em;opacity:.8}#lobteams span{font-size:15px}
+
+#rxtoggle{position:absolute;z-index:6;left:10px;top:64px;width:40px;height:40px;border-radius:50%;border:1px solid #ffffff70;background:#0b201ddd;font-size:20px;padding:0;color:#fff}
+#rxpanel{position:absolute;z-index:7;left:10px;top:110px;width:min(300px,86vw);background:#06140ff2;border:1px solid #ffffff40;border-radius:14px;padding:8px}
+#rxbar{display:flex;flex-wrap:wrap;gap:4px}#rxbar button{width:40px;height:40px;font-size:22px;border:0;border-radius:10px;background:#ffffff18;padding:0}
+#rxquick{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}#rxquick button{border:0;border-radius:14px;background:#294b3c;color:#fff;font-size:11px;padding:6px 9px;font-weight:bold}
+.rxin{display:flex;gap:4px}.rxin input{flex:1;min-width:0;background:#071b16;color:#fff;border:1px solid #ffffff50;border-radius:10px;padding:8px;font-size:16px}.rxin button{border:0;border-radius:10px;background:#7af0b1;color:#062017;font-weight:900;padding:0 12px}
+#rxfeed{position:absolute;z-index:3;left:10px;top:160px;width:min(260px,60vw);pointer-events:none;display:flex;flex-direction:column;gap:4px}
+.rxmsg{background:#000a;border-radius:12px;padding:4px 9px;font-size:12px;line-height:1.25;transition:opacity .6s;word-break:break-word;animation:rxin .25s}.rxmsg b{color:#8bf2b5}.rxmsg.out{opacity:0}
+@keyframes rxin{from{transform:translateX(-14px);opacity:0}to{transform:none;opacity:1}}
+#rxfloat{position:absolute;z-index:4;inset:0;pointer-events:none;overflow:hidden}
+.rxfly{position:absolute;bottom:18%;font-size:40px;text-align:center;animation:rxup 3.4s ease-out forwards;text-shadow:0 2px 8px #000}.rxfly small{display:block;font-size:10px;font-weight:bold;background:#000a;border-radius:8px;padding:1px 6px}
+@keyframes rxup{0%{transform:translateY(0) scale(.5);opacity:0}12%{opacity:1;transform:translateY(-30px) scale(1.15)}100%{transform:translateY(-52vh) scale(1);opacity:0}}
+#rotate{position:absolute;z-index:30;inset:0;display:grid;place-items:center;background:#071b16f5;text-align:center;padding:20px}#rotate>div{max-width:300px}.rotph{font-size:60px;animation:rot 1.6s ease-in-out infinite}@keyframes rot{0%,30%{transform:rotate(0)}60%,100%{transform:rotate(-90deg)}}
+#rotate button{display:block;width:100%;border:0;border-radius:11px;padding:13px;margin:8px 0;font-weight:900;background:#7af0b1;color:#062017}#rotate #rotskip{background:#294b3c;color:#fff}
+@media(max-height:430px){#rxtoggle{top:60px}#rxpanel{top:104px}#rxfeed{top:150px}}
