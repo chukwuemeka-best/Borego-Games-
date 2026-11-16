@@ -1,1 +1,19 @@
-Upload index.html and cover.png to the top level of your Borego-Games repo, replacing the old ones. Nothing else is needed.
+CITY SHOWDOWN - how to put it in your Borego-Games repository
+
+1. Open your Borego-Games repository on GitHub.
+2. Click "Add file" > "Upload files". 
+3. Drag in the FOLDER called city-showdown (from this zip). GitHub keeps the folder name.
+   (It has just two files: index.html and cover.png.)
+4. Click "Commit changes". Wait 1-2 minutes.
+
+Check it opens: https://chukwuemeka-best.github.io/Borego-Games/city-showdown/
+Check the picture:  https://chukwuemeka-best.github.io/Borego-Games/city-showdown/cover.png
+
+In your Borego admin panel, add the game:
+  Name:        City Showdown
+  Link:        https://chukwuemeka-best.github.io/Borego-Games/city-showdown/
+  Picture link: https://chukwuemeka-best.github.io/Borego-Games/city-showdown/cover.png   (no slash at the end)
+  Players:     1 to 4
+  Solo allowed: yes
+
+The emoji, live chat and reactions come from Borego's game panel automatically - nothing is built into this game.
