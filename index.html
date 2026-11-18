@@ -3626,7 +3626,15 @@ function drawLobby(){if(playing)return;const L=lobbyList(),n=L.length,a=assign(L
  const bN=a.filter(x=>x[1]==='b').map(x=>nm[x[0]]),rN=a.filter(x=>x[1]==='r').map(x=>nm[x[0]]);if(n===1||n===3)rN.push('Computer');if(bN.length<2)bN.push('Computer team-mates');if(rN.length<2&&n!==1&&n!==3)rN.push('Computer team-mates');
  $('lobteams').replaceChildren(...[['BOREGO FC',bN],['RIVALS',rN]].map(([h,l])=>{const d=document.createElement('div'),b=document.createElement('b'),s=document.createElement('span');b.textContent=h;s.textContent=l.join(', ');d.append(b,s);return d}));
  const host=Borego.isHost||n===1;$('create').classList.toggle('hidden',!host||!ready);$('create').textContent=n===1?'KICK OFF vs COMPUTER':'KICK OFF';
- $('status').textContent=!ready?'Loading players and stadium…':n===1?'Playing alone against the computer. To play with friends, start Football from a chat.':host?'Press KICK OFF when everyone is ready.':'Waiting for the host to kick off…'}
+ $('status').textContent=!ready?'Loading players and stadium…':n===1?'Playing alone against the computer. To play with friends, start Football from a chat.':host?'Press KICK OFF when everyone is ready.':'Connected. The match starts in a moment…';autoStart(host,n)}
+let autoT=0,autoLeft=0,guestT=0;
+function autoStart(host,n){if(playing)return;
+ if(!host&&n>1&&ready&&!guestT){guestT=setTimeout(()=>{guestT=0;if(!playing)$('status').textContent='Still waiting for your friend\'s phone to start the match. Ask them to keep Borego open.'},15000)}
+ if(!host||n<2||!ready||autoT)return;autoLeft=3;$('create').textContent='KICK OFF NOW';
+ const tick=()=>{if(playing){autoT=0;return}const m=lobbyList().length;if(m<2){autoT=0;drawLobby();return}
+  if(autoLeft<=0){autoT=0;kickoff();return}
+  $('status').textContent='Everyone is here. Starting in '+autoLeft+'…';autoLeft--;autoT=setTimeout(tick,1000)};
+ tick()}
 let ready=false;
 function kickoff(){if(playing||!ready)return;ac();const L=lobbyList(),n=L.length;side='host';solo=n===1;online=!solo;$('net').textContent=solo?'VS COMPUTER':n+' PLAYERS';setupControllers(assign(L));playing=true;$('lobby').classList.add('hidden');time=0;half=1;score=[0,0];hud();setDead('kickoff',0,0,0,true);startCrowd();chantT=6}
 function wireBorego(){Borego.on('message',netMsg);
@@ -3669,7 +3677,7 @@ function showRx(from,p){if(!p||typeof p!=='object')return;const name=from?nameOf
  else if(p.k==='msg'){const t=cleanTxt(p.v);if(t)feedAdd(name,t,false)}}
 function feedAdd(name,txt,emo){const f=$('rxfeed'),d=document.createElement('div');d.className='rxmsg';const b=document.createElement('b');b.textContent=name;const s=document.createElement('span');s.textContent=' '+txt;if(emo)s.style.fontSize='16px';d.appendChild(b);d.appendChild(s);f.appendChild(d);while(f.children.length>5)f.firstChild.remove();setTimeout(()=>{d.classList.add('out');setTimeout(()=>d.remove(),600)},7000)}
 function sendRx(p){const n=performance.now();if(n-rxLast<700)return;rxLast=n;showRx(null,p);if(online)send('rx',p)}
-function wireSocial(){const bar=$('rxbar');EMO.forEach(e=>{const b=document.createElement('button');b.textContent=e;b.onclick=()=>{sendRx({k:'emoji',v:e});$('rxpanel').classList.add('hidden')};bar.appendChild(b)});
+function wireSocial(){if(window.parent!==window){['rxtoggle','rxpanel','rxfeed','rxfloat'].forEach(i=>{const e=$(i);if(e)e.style.display='none'})}const bar=$('rxbar');EMO.forEach(e=>{const b=document.createElement('button');b.textContent=e;b.onclick=()=>{sendRx({k:'emoji',v:e});$('rxpanel').classList.add('hidden')};bar.appendChild(b)});
  const q=$('rxquick');QUICK.forEach(t=>{const b=document.createElement('button');b.textContent=t;b.onclick=()=>{sendRx({k:'msg',v:t});$('rxpanel').classList.add('hidden')};q.appendChild(b)});
  $('rxtoggle').onclick=()=>{$('rxpanel').classList.toggle('hidden')};
  const go=()=>{const i=$('rxinput'),t=cleanTxt(i.value);if(t){sendRx({k:'msg',v:t});i.value='';$('rxpanel').classList.add('hidden')}};$('rxsend').onclick=go;$('rxinput').addEventListener('keydown',e=>{e.stopPropagation();if(e.key==='Enter')go()});$('rxinput').addEventListener('keyup',e=>e.stopPropagation());

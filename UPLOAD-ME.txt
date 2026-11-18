@@ -1,1 +1,1 @@
-Upload index.html and cover.png to the top level of your Borego-Games repo, replacing the old ones. Nothing else is needed.
+Upload index.html and cover.png to your Borego-Games repo, replacing the old ones.
